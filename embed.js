@@ -25,30 +25,47 @@ var userSchema = new mongoose.Schema({
 var User = mongoose.model('User', userSchema);
 
 
-// var newPost = new Posts({
-//   title: 'This is a test',
-//   content: 'I think I love Pepsi?'
-// });
-//
-// newPost.save(function(err, result){
-//   if(err){
-//     console.log(err);
-//   } else {
-//     console.log('Successfully Added: ');
-//     console.log(result);
-//   }
-// });
-
 // var newUser = new User({
-//   email : 'dodo@brown.edu',
-//   name : 'Dodo'
+//   email: 'hello@hello.com',
+//   name: 'The Ice King'
 // });
 //
+// //push new posts data into User.posts array
+// newUser.posts.push(
+//   {
+//     title: 'How I Came To Be',
+//     content: 'Story of the coldest dude in all of the land'
+//   }
+// );
+//
+// //and save everything into the db. It will save in blog_demo.users and blog_demo.users.posts for the pushed post
 // newUser.save(function(err, result){
 //   if(err){
 //     console.log(err);
 //   } else {
-//     console.log('Successfully Added: ');
+//     console.log('Successfully added: ');
 //     console.log(result);
+//   }
+// });
+
+// User.findOne({name : 'The Ice King'}, function(err, result){
+//   if(err){
+//     console.log(err);
+//   } else {
+//     console.log(result);
+//     //push new posts in result.posts
+//     result.posts.push({
+//       title: 'My Favorite Foods',
+//       content: 'Random ramblings about the sun'
+//     });
+//
+//     //don't forget to save
+//     result.save(function(err, success){
+//       if(err){
+//         console.log(err);
+//       } else {
+//         console.log('Successful Add');
+//       }
+//     })
 //   }
 // });
