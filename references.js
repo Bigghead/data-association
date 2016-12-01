@@ -5,26 +5,9 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/blog_demo_2');
 
 //Models
-//Post Model
-var postSchema = new mongoose.Schema({
-  title: String,
-  content: String
-});
-var Posts = mongoose.model('Posts', postSchema);
-
-
-//User Model
-var userSchema = new mongoose.Schema({
-  email : String,
-  name: String,
-  posts: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Posts'
-    }
-  ]
-});
-var User = mongoose.model('User', userSchema);
+//import from post.js
+var Posts = require('./models/post');
+var User = require('./models/user');
 
 
 // User.create({
@@ -68,11 +51,3 @@ var User = mongoose.model('User', userSchema);
 
 //find User
 //find all posts by this user
-User.findOne({name: 'Sauron'}).populate('posts')
-.exec(function(err, foundUser){
-    if(err){
-      console.log(err);
-    } else {
-      console.log(foundUser);
-    }
-  });
